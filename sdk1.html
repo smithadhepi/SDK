@@ -1,0 +1,127 @@
+<!Doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <style>
+      .form-block {
+        width: 60%;
+        margin-left: auto; 
+        margin-right: auto;
+        margin-top: 4rem;
+      }
+      .form-block button {
+        margin-top: 1rem;
+      }
+    </style>
+  <title>Simple SDK Form - Multiple Forms</title>
+</head>
+
+<body>
+  <div class="form-block">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">First Collection Point with custom Token</h2>
+    </div>
+    <form id="sample_form2" class="form-signin">
+      <label for="inputEmail2" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail2" class="form-control" placeholder="Email address" required>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="form-block">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">Second Collection Point with custom Token</h2>
+    </div>
+    <form id="sample_form3" class="form-signin">
+      <label for="inputEmail3" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail3" class="form-control" placeholder="Email address" required>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </div>
+  
+  <div class="form-block">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">Third Collection Point with custom Token</h2>
+    </div>
+    <form id="sample_form4" class="form-signin">
+      <label for="inputEmail4" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail4" class="form-control" placeholder="Email address" required>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </div>
+  
+  <div class="form-block">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">Third Collection Point with custom Token</h2>
+    </div>
+    <form id="sample_form5" class="form-signin">
+      <label for="inputEmail5" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail5" class="form-control" placeholder="Email address" required>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </div>
+
+<!-- OneTrust Consent Receipt Start -->
+<script src="https://crds768d.blob.core.windows.net/privacy-notice-scripts/scripts/otconsent-1.0.js" type="text/javascript" charset="UTF-8" id="consent-receipt-script">
+    settingsUrl="https://crds768d.blob.core.windows.net/consentmanager-settings/184a20e4-c858-4ed6-9294-9d0c7bbc1a9c/25da92eb-9a20-403e-9d86-d95fc6aabf63-active.json";
+    identifierId="inputEmail0"
+</script>
+<!-- OneTrust Consent Receipt End -->
+
+<!-- Custom Integration Start -->
+<script type="text/javascript" charset="UTF-8">
+  $(function () {
+
+    $("#sample_form2").submit(function (event) {
+      event.preventDefault();
+      const identifier = $("#inputEmail2").val();
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjI1ZGE5MmViLTlhMjAtNDAzZS05ZDg2LWQ5NWZjNmFhYmY2MyIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDE5LTA5LTE2VDE2OjUzOjM3Ljc5MyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiZW1haWwiLCJpc3MiOiJodHRwOi8vZm9ybS5jb20iLCJ0ZW5hbnRJZCI6IjE4NGEyMGU0LWM4NTgtNGVkNi05Mjk0LTlkMGM3YmJjMWE5YyIsImRlc2NyaXB0aW9uIjoienhjIiwiY29uc2VudFR5cGUiOiJGT1JNU1VCTUlUIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiI0NmYzMDg2ZS05YjhjLTQ5NDMtYTg5MC00ZTc5ODc2NzkyYTciLCJ2ZXJzaW9uIjoxNSwidG9waWNzIjpbeyJpZCI6IjIzMWRlYzk0LTY3NDAtNDhlYi1hY2Y3LWU0OGJhZTE4NGM1YSJ9XSwiY3VzdG9tUHJlZmVyZW5jZXMiOlt7ImlkIjoiMTRmMDk5OWUtZWYyOS00ZWNmLWE3MGYtMTIwMGI4MDY5Yjk1IiwiaXNSZXF1aXJlZCI6dHJ1ZSwib3B0aW9ucyI6WyJkNWNhMjk4NC1jMDJiLTQzNmItYmJkZi0wMzc0N2M3OTA2ZWUiLCI3MDkyZjNhYy03NjVkLTQ2YWEtYTI0Ny1hZDM2MzIxZjk1YTciLCIzMGYyYWQ1Ny00YWYwLTRiZTMtODQwYS0xMjEzOGYzMGI2OTgiLCIyZTJmMDk0My02YTIwLTQzZTAtYjZkMi1iNjIxYjkyMDRkYTEiXX1dfV0sIm5vdGljZXMiOltdLCJkc0RhdGFFbGVtZW50cyI6W119.IvfGy0YZVOubXVD-I8NeHixHWVRPIuiOVkk7rX4yyejfhybkqGuxGfE5T45UxA2s41ijA5vbjsvdJO-cth3v4n_sKewH6AIMeYfpArRsLBAF6PJp6qj2UbnBScxMC2erRZBIQB_FNEQse_t1IaZRDpduY_yTMnu-n16h_ySoE4NUbqsKfz4QIBkajIyHYjfoD0d7K2SPxy75swYcYXHJrtrqL8ywwzVKYJkvVhPxEzTmXKyfkFHnV3ebVGgILBPWZqHycW7yjFfiySEenQBTyx9SCmCFgVLb19LFPY7jvUcEn1m8A2G8xUw0I-r3wb6xLwWrpSEPxolMov7aCkfFgg";
+      OneTrust.Api.TriggerReceiptAction(identifier, token).then((receiptId) => {
+        console.log("Form 2 got the receipt id back:", receiptId);
+        window.alert(`Form 2 got the receipt id back: ${receiptId}`);
+      });
+    });
+
+    $("#sample_form3").submit(function (event) {
+      event.preventDefault();
+      const identifier = $("#inputEmail3").val();
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjcwMzMyZmZiLWZmYjMtNDA0Zi04ZDMxLTFhODkyZjhjYmQ2YiIsInByb2Nlc3NWZXJzaW9uIjo0LCJpYXQiOiIyMDE5LTA5LTE3VDA1OjQ4OjE0LjA4NyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOiJodHRwczovL3Rlc3QuY29tIiwidGVuYW50SWQiOiI3YzFjYTI4Yi0wYjViLTQyMmEtYmM0MC1kMzZjMjYyYTUxNjAiLCJkZXNjcmlwdGlvbiI6IkRlcyIsImNvbnNlbnRUeXBlIjoiT1BUSU5DSEVDS0JPWCIsImRvdWJsZU9wdEluIjpmYWxzZSwicG9saWN5X3VyaSI6bnVsbCwiYWxsb3dOb3RHaXZlbkNvbnNlbnRzIjpmYWxzZSwicHVycG9zZXMiOlt7ImlkIjoiNGZkN2FhODgtZmU1ZC00ZDc3LWJiMzgtYTVhZGM0NmY5YWZmIiwidmVyc2lvbiI6MSwidG9waWNzIjpbXSwiY3VzdG9tUHJlZmVyZW5jZXMiOltdfSx7ImlkIjoiY2E4NDU5NTUtNzIzNC00OTk3LWFkYWQtNzdmNGNiMGMxODk2IiwidmVyc2lvbiI6MywidG9waWNzIjpbeyJpZCI6ImNkZWIzYzZhLWFlZjYtNDRhYi04YWE5LWNkY2FjOTk5MTcwZSJ9LHsiaWQiOiJlYmI4NmVlYS1kZDA0LTRhOWItODZkNy04YmVhMjdkOGUzMTIifV0sImN1c3RvbVByZWZlcmVuY2VzIjpbeyJpZCI6IjhjZWRhOGRkLTgxYjctNGY0Yi1hOGQ4LTExOWFlYmQyMDg5YyIsImlzUmVxdWlyZWQiOmZhbHNlLCJvcHRpb25zIjpbIjU4Yzk1MjJhLWMzOGQtNDg5OS1hMWYzLWNjOWViYjViMmIwYSIsImQ1MTgyZDE0LWFhZGYtNDgxZC1hZmU4LTlkZjgzYWMyMGQwZCIsIjllZWY2MTQwLWMxNmMtNDBiMC05YTNiLTQzOTIxNTBlZmI0YyJdfSx7ImlkIjoiNDg5OWM2MDUtY2I3OC00ZjExLWFjM2ItYTQwNTA2ZTRkMTE2IiwiaXNSZXF1aXJlZCI6ZmFsc2UsIm9wdGlvbnMiOlsiYjUxNDIzYjktYzNmNy00MjQwLWJjYWItMDY3NzQ2MmZhN2U5IiwiN2MwNGM4NjItN2M1Ny00OTVlLWEzN2YtZWY2NjM2MjNjZjQ5Il19LHsiaWQiOiJmNjAyMzEyMi03MWMwLTQ4YjctOTE0OS1kMTJkODFkNDNjZTciLCJpc1JlcXVpcmVkIjpmYWxzZSwib3B0aW9ucyI6WyJkNThmOWQ3OC1kMmNiLTRhZGItYmRlZS1hOGE1YTI4M2QwYTMiXX0seyJpZCI6ImY4MWEwNzc2LWIzMTUtNGUyNS04OTQ1LWRhZmM1NTFiMGZkYiIsImlzUmVxdWlyZWQiOmZhbHNlLCJvcHRpb25zIjpbIjExZGVhOGUyLTI4ZWMtNDYyNC1hMTZhLTE2N2M0YTlmZGQ5NyIsImFmMWRmY2Y3LTdiMDctNGZjNC04MGMyLTY5MjI0MDYyMzVlZCIsIjRmZWJmYzMwLTMzNmEtNDhmMy1iYzQ2LWU1MjVjYWViZWE0NyIsIjBjZDg1ODY5LWNmYTMtNDU0Yy1hNGI1LTFiYjMwNzVjZGRiOSJdfV19XSwibm90aWNlcyI6W3sidXJsIjoiaHR0cDovL3Rlc3QuY29tIiwicHJpdmFjeU5vdGljZUd1aWQiOiI1NTUzODc2ZS1kMTkwLTQzYTctOWIzMC1iYjMwNjA5NjgzNjIifSx7InVybCI6Imh0dHBzOi8vdGVzdC5jb20iLCJwcml2YWN5Tm90aWNlR3VpZCI6bnVsbH1dLCJkc0RhdGFFbGVtZW50cyI6WyJUaXRsZSJdfQ.h-cCyeOXAOFQ2XxCeCQ-E0aVuECVFakj6gIs8_STlJBQma7xUWRX8nfznjRRpuoImNgp7XdrY2leWGhQlaV0zreOE2KF9rmxL1nziT6l-EC32MbxIyWvSSEerGCFF5iaAl-URLdUmn7na1GqY8ROWdYPtHyxqaZKpBh2_dYxsnbFWhoQGqLkG66_IQQtkyJQqGed-2y5TvxATv9Kn1cdkwnWS-Vbpv_gEIbMjjn6eRIZDRaac9Bj2OUvKxAzOyhFdUjGdUeOEUD_DGfa6baWsk5HT23rbkEAs86UZghLTB3zGcRqSbWUFvLNGPodKMv7h8Dq36Y5SZbkfIkeab-KZA";
+      OneTrust.Api.TriggerReceiptAction(identifier, token).then((receiptId) => {
+        console.log("Form 3 got the receipt id back:", receiptId);
+        window.alert(`Form 3 got the receipt id back: ${receiptId}`);
+      });
+    });
+	
+	$("#sample_form4").submit(function (event) {
+      event.preventDefault();
+      const identifier = $("#inputEmail4").val();
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjFmNzJiNTdmLWE4YjQtNDk3Mi1hZTk3LWNhZDg2ODJmNDAwOSIsInByb2Nlc3NWZXJzaW9uIjo0LCJpYXQiOiIyMDE5LTEwLTAzVDA2OjM4OjQ2LjQ3MyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOiJ3d3cueWFob28uY29tIiwidGVuYW50SWQiOiIxODRhMjBlNC1jODU4LTRlZDYtOTI5NC05ZDBjN2JiYzFhOWMiLCJkZXNjcmlwdGlvbiI6ImQiLCJjb25zZW50VHlwZSI6IkZPUk1TVUJNSVQiLCJkb3VibGVPcHRJbiI6ZmFsc2UsInBvbGljeV91cmkiOm51bGwsImFsbG93Tm90R2l2ZW5Db25zZW50cyI6ZmFsc2UsInB1cnBvc2VzIjpbeyJpZCI6ImE4Nzk1ZmZjLWYyMTMtNDc5OC05OGJkLWJlNGQxMzdlMTlhMyIsInZlcnNpb24iOjcsInRvcGljcyI6W10sImN1c3RvbVByZWZlcmVuY2VzIjpbXX1dLCJub3RpY2VzIjpbXSwiZHNEYXRhRWxlbWVudHMiOltdfQ.HfGebFChzZ3XvAPXShS3V0h3QbXsnfcxwgc0wvsi_3e9C3p6hLf7soTb2g4wJyPTYEl9F363b734Tt8hNz2q30unwvU6dojp8rKMpVqaFp5gs6O5BJUWIarpOu4u7J2j0Ren0CJpQyamnFhg9IJXeebuTExJC5V_luosD_x2NtFH2j6xMpxQYRiK1mZ6DLM3BvXRL-PEETCt3hFcERelYX6nafVbeeOEYwZZfCsqQCMjQHiZbr-dqocgix18-6DCVCzHVbsILaTHYUDMh0c5ZD2-7xOgPRl0Sz7FlQ2MZL25CeYFYu6VQl-AtU8ORRgxyX6AvMmfB2O0zHnrK_wtWg"
+        OneTrust.Api.TriggerReceiptAction(identifier, token).then((receiptId) => {
+		console.log("Form 4 got the receipt id back:", receiptId);
+        window.alert(`Form 4 got the receipt id back: ${receiptId}`);
+      });
+    });
+	
+	$("#sample_form5").submit(function (event) {
+      event.preventDefault();
+      const identifier = $("#inputEmail5").val();
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjI1ZGE5MmViLTlhMjAtNDAzZS05ZDg2LWQ5NWZjNmFhYmY2MyIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDE5LTA5LTE2VDE2OjUzOjM3Ljc5MyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiZW1haWwiLCJpc3MiOiJodHRwOi8vZm9ybS5jb20iLCJ0ZW5hbnRJZCI6IjE4NGEyMGU0LWM4NTgtNGVkNi05Mjk0LTlkMGM3YmJjMWE5YyIsImRlc2NyaXB0aW9uIjoienhjIiwiY29uc2VudFR5cGUiOiJGT1JNU1VCTUlUIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiI0NmYzMDg2ZS05YjhjLTQ5NDMtYTg5MC00ZTc5ODc2NzkyYTciLCJ2ZXJzaW9uIjoxNSwidG9waWNzIjpbeyJpZCI6IjIzMWRlYzk0LTY3NDAtNDhlYi1hY2Y3LWU0OGJhZTE4NGM1YSJ9XSwiY3VzdG9tUHJlZmVyZW5jZXMiOlt7ImlkIjoiMTRmMDk5OWUtZWYyOS00ZWNmLWE3MGYtMTIwMGI4MDY5Yjk1IiwiaXNSZXF1aXJlZCI6dHJ1ZSwib3B0aW9ucyI6WyJkNWNhMjk4NC1jMDJiLTQzNmItYmJkZi0wMzc0N2M3OTA2ZWUiLCI3MDkyZjNhYy03NjVkLTQ2YWEtYTI0Ny1hZDM2MzIxZjk1YTciLCIzMGYyYWQ1Ny00YWYwLTRiZTMtODQwYS0xMjEzOGYzMGI2OTgiLCIyZTJmMDk0My02YTIwLTQzZTAtYjZkMi1iNjIxYjkyMDRkYTEiXX1dfV0sIm5vdGljZXMiOltdLCJkc0RhdGFFbGVtZW50cyI6W119.IvfGy0YZVOubXVD-I8NeHixHWVRPIuiOVkk7rX4yyejfhybkqGuxGfE5T45UxA2s41ijA5vbjsvdJO-cth3v4n_sKewH6AIMeYfpArRsLBAF6PJp6qj2UbnBScxMC2erRZBIQB_FNEQse_t1IaZRDpduY_yTMnu-n16h_ySoE4NUbqsKfz4QIBkajIyHYjfoD0d7K2SPxy75swYcYXHJrtrqL8ywwzVKYJkvVhPxEzTmXKyfkFHnV3ebVGgILBPWZqHycW7yjFfiySEenQBTyx9SCmCFgVLb19LFPY7jvUcEn1m8A2G8xUw0I-r3wb6xLwWrpSEPxolMov7aCkfFgg";
+      OneTrust.Api.TriggerReceiptAction(identifier).then((receiptId) => {
+        console.log("Form 5 got the receipt id back:", receiptId);
+        window.alert(`Form 5 got the receipt id back: ${receiptId}`);
+      });
+    });
+  });
+</script>
+<!-- Custom Integration End -->
+
+</html>
