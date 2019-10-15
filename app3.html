@@ -45,6 +45,33 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form>
   </div>
+  
+  <div class="form-block">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">Third Collection Point with custom Token</h2>
+    </div>
+    <form id="sample_form4" class="form-signin">
+      <label for="inputEmail4" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail4" class="form-control" placeholder="Email address" required>
+	  
+		  
+	<ul style="list-style: none;">
+        <i style="margin-top: 1em;">
+		 <div class="checkbox">
+			  <label><input id="combo1PurposeBox" type="checkbox" value="combinedPurpose[0].Id">
+				cp2Purpose
+			  </label>
+		  </div>
+		  <div class="checkbox">
+			  <label><input id="combo2PurposeBox" type="checkbox" value="combinedPurpose[1].Id">
+				cp3Purpose
+			  </label>
+		  </div>
+		  </ul>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </div>
 
 <!-- OneTrust Consent Receipt Start -->
 <script
@@ -68,6 +95,7 @@
         ]
       }
     ];
+	var combinedPurpose = [{Id: "2f3753ed-ebf0-47c5-b47f-fc9ed277134a"}, {Id: "91246d93-6949-4e73-a608-5a59b55ba464"}];
 
     $("#sample_form2").submit(function (event) {
       event.preventDefault();
@@ -86,6 +114,16 @@ const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjJi
 OneTrust.Api.TriggerReceiptAction(identifier, token, cp2Purpose).then((receiptId) => {
         console.log("Form 2 got the receipt id back:", receiptId);
         window.alert(`Form 2 got the receipt id back: ${receiptId}`);
+      });
+    });
+	
+	$("#sample_form4").submit(function (event) {
+      event.preventDefault();
+      const identifier = $("#inputEmail4").val();
+const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6ImE0Y2JjNTVkLTFlNWYtNDI1Ni04ZGMyLTM4NDRlOGI5NWVkMCIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDE5LTEwLTE1VDEwOjI4OjMwLjYyNyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOiJ3d3cueWFob28uY29tIiwidGVuYW50SWQiOiI5ZjJmNGVmYi1kMWU5LTQwNWYtOGRkYS00MzA1NDQ4ODEyMWIiLCJkZXNjcmlwdGlvbiI6ImQiLCJjb25zZW50VHlwZSI6Ik9QVElOQ0hFQ0tCT1giLCJkb3VibGVPcHRJbiI6ZmFsc2UsInBvbGljeV91cmkiOm51bGwsImFsbG93Tm90R2l2ZW5Db25zZW50cyI6ZmFsc2UsInB1cnBvc2VzIjpbeyJpZCI6IjJmMzc1M2VkLWViZjAtNDdjNS1iNDdmLWZjOWVkMjc3MTM0YSIsInZlcnNpb24iOjIsInRvcGljcyI6W10sImN1c3RvbVByZWZlcmVuY2VzIjpbXX0seyJpZCI6IjkxMjQ2ZDkzLTY5NDktNGU3My1hNjA4LTVhNTliNTViYTQ2NCIsInZlcnNpb24iOjEsInRvcGljcyI6W10sImN1c3RvbVByZWZlcmVuY2VzIjpbXX1dLCJub3RpY2VzIjpbXSwiZHNEYXRhRWxlbWVudHMiOltdfQ.hxN3p-iqUDtTrQxfKlt57GpYGJJGD1hqtXl9cC4pGLJBah4gEa_c67WCdHOLddSpsY7twjLDZa8ocsED_TcBwTXt1Ol8zNtm6tjim1LeQ8L4x5FD39BY5z1h4gaAlocZ04cJ_P1-nnTLN_Td38Byb7JbsBXx0E_wwrRadPBeSx7gSqjNxskqxHrLeChkAI2GoTTOonU9Vl5E1IGEWoNrCauGiqzOIoPljagWZ22ObReY-xd10PTD4cCJu63d_SO2c17mDzjVOpZFfkyiah8RaFJ6ogQGzxGc60aPzP-hh1-6d--tsxrh--qTq8Le8BuK8CZO_4ORy88WOM0sErELaw";
+OneTrust.Api.TriggerReceiptAction(identifier, token, combinedPurpose).then((receiptId) => {
+        console.log("Form 3 got the receipt id back:", receiptId);
+        window.alert(`Form 3 got the receipt id back: ${receiptId}`);
       });
     });
   });
