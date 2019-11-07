@@ -1,0 +1,109 @@
+<!Doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <style>
+      .form-block {
+        width: 60%;
+        margin-left: auto; 
+        margin-right: auto;
+        margin-top: 4rem;
+      }
+      .form-block button {
+        margin-top: 1rem;
+      }
+    </style>
+  <title>Simple SDK Form - Multiple Forms</title>
+</head>
+
+<body>
+  <div class="form-block">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">First Collection Point with custom Token</h2>
+    </div>
+    <form id="sample_form2" class="form-signin">
+      <label for="inputEmail2" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail2" class="form-control" placeholder="Email address" required>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="form-block">
+    <div style="text-align:center;">
+      <h2 class="form-signin-heading">Second Collection Point with custom Token</h2>
+    </div>
+    <form id="sample_form3" class="form-signin">
+      <label for="inputEmail3" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail3" class="form-control" placeholder="Email address" required>
+	  
+		  
+	<ul style="list-style: none;">
+        <i style="margin-top: 1em;">
+		 <div class="checkbox">
+			  <label><input id="combo1PurposeBox" type="checkbox" value="combinedPurpose[0].Id">
+				cp2Purpose
+			  </label>
+		  </div>
+		  <div class="checkbox">
+			  <label><input id="combo2PurposeBox" type="checkbox" value="combinedPurpose[1].Id">
+				cp3Purpose
+			  </label>
+		  </div>
+		  </ul>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+  </div>
+  
+  
+<!-- OneTrust Consent Receipt Start -->
+<script
+          src="https://appds7c6e.blob.core.windows.net/consent-receipt-scripts/scripts/otconsent-1.0.min.js"
+          type="text/javascript"
+          charset="UTF-8"
+          id="consent-receipt-script">
+  triggerId="trigger";
+  identifierId="inputEmail";
+  confirmationId="confirmation";
+  settingsUrl="https://appds7c6e.blob.core.windows.net/consentmanager-settings/9f2f4efb-d1e9-405f-8dda-43054488121b/4e437847-3003-47bd-b4ca-d3ab8447cd4d-draft.json";
+</script><!-- OneTrust Consent Receipt End -->
+
+<!-- Custom Integration Start -->
+<script type="text/javascript" charset="UTF-8">
+  $(function () {
+    var cp1Purpose = [{Id: "4a7bea5d-e3f4-4277-bb8e-706aecb96fa2"}];
+    	var combinedPurpose = [{Id: "4a7bea5d-e3f4-4277-bb8e-706aecb96fa2"}, {Id: "bf8137f6-84d9-40cc-abd0-a81b1a40fa32"}];
+	
+    $("#sample_form2").submit(function (event) {
+      event.preventDefault();
+      const identifier = $("#inputEmail2").val();
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6ImE1NTVmM2Y4LWM0MWEtNDk3ZS1iNjgwLTM1NjYxYjBmZTQxMyIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDE5LTExLTA2VDExOjQ2OjUwLjUzMyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOm51bGwsInRlbmFudElkIjoiOWYyZjRlZmItZDFlOS00MDVmLThkZGEtNDMwNTQ0ODgxMjFiIiwiZGVzY3JpcHRpb24iOiJkIiwiY29uc2VudFR5cGUiOiJGT1JNU1VCTUlUIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiI0YTdiZWE1ZC1lM2Y0LTQyNzctYmI4ZS03MDZhZWNiOTZmYTIiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119XSwibm90aWNlcyI6W10sImRzRGF0YUVsZW1lbnRzIjpbIlRpdGxlIiwiRmlyc3ROYW1lIiwiTGFzdE5hbWUiLCJOYW1lIl19.e7gpBLFRxE7RQTpSf3_HmO_lC4j0YJ4k6y0oJgp7JwAsmVrvaMV36chKIWLne90lq-cdowRFOOa_H1xEtxonc3e4CJNjdcs6URfK_rOFiLQd6rRkeLTTOhoDZVfzA5V04ERG4JsRPTRrRs3wPzphPkFXV5bcS-GO0Bje0ya0_A5k6KwwYOtDig7Nbi3wH1EsgH-E4xtX6za1ZVekuuzJ2j0qJSiNZSuPuPxNmbbza6yU_q52cG0hqiACti4HbLSo5K0FF6z57sxnr1lhVLxNq-r8T0R10P09xeUreUz6MhHx1oOCjsXMHWFzRHQHM4AV2tVUrMmtEPaHFMljZSfCQA";
+      OneTrust.Api.TriggerReceiptAction(identifier, token, cp1Purpose).then((receiptId) => {
+        console.log("Form 1 got the receipt id back:", receiptId);
+        window.alert(`Form 1 got the receipt id back: ${receiptId}`);
+      });
+    });
+
+    $("#sample_form3").submit(function (event) {
+      event.preventDefault();
+      const identifier = $("#inputEmail3").val();
+      const token = "eyJhbGciOiJSUzUxMiJ9.eyJvdEp3dFZlcnNpb24iOjEsInByb2Nlc3NJZCI6IjA2YjAzMjM5LTg4ZGUtNGYxMy1hNThiLTY4NjYxZGQ0ZWUwZiIsInByb2Nlc3NWZXJzaW9uIjoxLCJpYXQiOiIyMDE5LTExLTA1VDA1OjU5OjQyLjY2NyIsIm1vYyI6IldFQl9GT1JNIiwic3ViIjoiRW1haWwiLCJpc3MiOm51bGwsInRlbmFudElkIjoiOWYyZjRlZmItZDFlOS00MDVmLThkZGEtNDMwNTQ0ODgxMjFiIiwiZGVzY3JpcHRpb24iOiJkIiwiY29uc2VudFR5cGUiOiJPUFRJTkNIRUNLQk9YIiwiZG91YmxlT3B0SW4iOmZhbHNlLCJwb2xpY3lfdXJpIjpudWxsLCJhbGxvd05vdEdpdmVuQ29uc2VudHMiOmZhbHNlLCJwdXJwb3NlcyI6W3siaWQiOiI0YTdiZWE1ZC1lM2Y0LTQyNzctYmI4ZS03MDZhZWNiOTZmYTIiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119LHsiaWQiOiJiZjgxMzdmNi04NGQ5LTQwY2MtYWJkMC1hODFiMWE0MGZhMzIiLCJ2ZXJzaW9uIjoxLCJ0b3BpY3MiOltdLCJjdXN0b21QcmVmZXJlbmNlcyI6W119XSwibm90aWNlcyI6W10sImRzRGF0YUVsZW1lbnRzIjpbXX0.Ev8RCOfeX_aiHvh0KjH1m7L_tF0nmaYHeVB19UJI-Ys7xc7f7ysuZDZDApKPvy-NnJqwjR0dyw5x0GqzPh0QPH9egmju2t49ajy2-DQC_jGzzSbfjYfVCa6fVWBwEfhXXJjQLB4WGHoAw6fSJFPAbdtVE3_R9KDX7vh48nE-wCsDAKIMq-CQho1LKq4ye6qzFSvFZLgIY5hrEv5H3OcibTnVg-BKcDtBUuAlfQcT_b3tMoHAqtH4yL0z9pj6cuSJUlBJz44W6e_IYSd3VKiKpOuaUaJ8rzXxzTv6Uqx0v8m0vVqPNl_edg-FRCzFyPuMf10JXw_N9GLgMu58a6-SmA";
+      OneTrust.Api.TriggerReceiptAction(identifier, token, combinedPurpose).then((receiptId) => {
+        console.log("Form 2 got the receipt id back:", receiptId);
+        window.alert(`Form 2 got the receipt id back: ${receiptId}`);
+      });
+    });
+	
+	
+	  
+  });
+</script>
+<!-- Custom Integration End -->
+
+</html>
